@@ -13,9 +13,6 @@ form{
 h1{
     text-align: center;
 }
-label{
-    margin: 10px;
-}
 img{
     float: left;
 }
@@ -39,4 +36,8 @@ button{
     width: 150px;
     color: white;
     background: linear-gradient(to right, rgb(43, 186, 243) 0%, rgb(172, 25, 159) 100%);
+}
+.erreur{
+    color: red;
+    font-size: 13px;
 }
