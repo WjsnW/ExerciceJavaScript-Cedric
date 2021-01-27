@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Welter Jason" />
+        <meta name="generator" content="VS" />
+        <meta name="description" content="Un exercice d'une fonction mathematique en javaScript" />
+        <title>Exercices TVA</title>
+        <link rel="stylesheet" href="Public/css/insrcription.css" />
+    </head>
+    <style>
+        input{
+            border: 1px solid black;
+        }
+        #resul{
+            text-align: center;
+        }
+    </style>
+    <body>
+        <h1>Exercice TVA</h1>
+        <form onsubmit="calcule(); return false;">
+            <label for="art">Prix de l'articles</label>
+            <input id="art" type="text">
+            <br>
+            <label>Type de prix ?</label>
+            <select id="taxe">
+                <option value="ht">HT</option>
+                <option value="ttc">TTC</option>
+            </select>
+            <br>
+            <label>Type de TVA appliquer</label>
+            <select id="combient">
+                <option value="1.1">10%</option>
+                <option value="1.2">20%</option>
+            </select>
+            <br>
+            <button type="submit">Calculer</button>
+            <br>
+            <div id="resul"></div>
+        </form>
+    </body>
+    <script src="Public/JavaScript/tva.js"></script>
+</html>
