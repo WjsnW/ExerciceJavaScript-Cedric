@@ -4,7 +4,8 @@ function calcule() {
     let opt2 = document.getElementById('combient').value;
     let somme;
 
-    if (nbr.match(/^[\d.]{1,}$/g)) {
+    if (nbr.match(/^[\d.,]{1,}$/g)) {
+        nbr = nbr.replace(",",".");
         if (opt1 == "ht"){
             somme = nbr * opt2;
             opt1 = "TTC";
@@ -12,7 +13,7 @@ function calcule() {
             somme = nbr / opt2;
             opt1 = "HT";
         }
-        somme = Math.round(somme * 100) / 100;
+        somme = somme.toFixed(2);
         document.getElementById('resul').innerHTML = "Le montand et de : "+somme+"€ "+opt1;
         document.getElementById('resul').style.color = "green"; 
     } else{
