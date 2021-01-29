@@ -109,6 +109,10 @@ function calcule() {
         document.getElementById("rEstimer").innerHTML = " "+somme+" €";
     };
     flag = 0;
-    console.log("ok" + somme);
+    if (somme >= 0){
+        document.getElementById("resultat").style.color = "green";
+    }else{
+        document.getElementById("resultat").style.color = "red";
+    }
     return false
 };
