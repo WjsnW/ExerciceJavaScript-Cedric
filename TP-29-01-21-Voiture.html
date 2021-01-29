@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Welter Jason" />
+        <meta name="generator" content="VS" />
+        <meta name="description" content="Un TP d'un calculateur de decote pour voiture" />
+        <title>TD voiture</title>
+        <link rel="stylesheet" href="Public/css/Voiture.css" />
+    </head>
+    <body>
+        <main>
+            <h1>Ma voiture.fr</h1>
+            <form onsubmit="return calcule()">
+                <div>
+                    <label for="#marque">Marque</label>
+                    <p id="errMarque" class="erreur">(* vous devez saisir une marque)</p>
+                </div>
+                <input id="marque" type="text">
+                <div>
+                    <label for="#modele">Modèle</label>
+                    <p id="errModele" class="erreur">(* vous devez saisir une marque)</p>
+                </div>
+                <input id="modele" type="text">
+                <div>
+                    <label for="#type">Type </label>
+                    <p id="errType" class="erreur">(* vous devez selectionner un type)</p>
+                </div>
+                <select id="type" type="text">
+                    <option value="vide"></option>
+                    <option value="Essence">Essence</option>
+                    <option value="Diesel">Diesel</option>
+                </select>
+                <div>
+                    <label for="#origin">Origine </label>
+                    <p id="errOrigin" class="erreur">(* vous devez selectionner un pays)</p>
+                </div>
+                <select id="origin" type="text">
+                    <option value="vide"></option>
+                    <option value="France">France</option>
+                    <option value="Allemagne">Allemagne</option>
+                    <option value="Italie">Italie</option>
+                </select>
+                <div>
+                    <label for="#km">Nombre de km </label>
+                    <p id="errKm" class="erreur">(* vous devez saisir les km)</p>
+                </div>
+                <input id="km" type="text">
+                <div>
+                    <label for="#neuve">Valeur neuve </label>
+                    <p id="errNeuve" class="erreur">(* vous devez saisir le prix)</p>
+                </div>
+                <input id="neuve" type="text" onkeypress="prix()">
+                <div>
+                    <label for="prevoir">Travaux à prévoir </label>
+                    <p id="errPrevoir" class="erreur">(* vous devez selectionner les travaux)</p>
+                </div>
+                <select id="prevoir" type="text">
+                    <option value="vide"></option>
+                    <option value="Oui">Oui</option>
+                    <option value="Non">Non</option>
+                </select>
+                <br>
+                <input id="envoyer" type="submit" value="Estimer">
+                <p id="errTrop">Le véhicule à trop de km</p>
+            </form>
+            <div id="resultat">
+                <p>Marque : <span id="rMarque"></span></p>
+                <p>Modèle : <span id="rModele"></span></p>
+                <p>Type : <span id="rType"></span></p>
+                <p>Origine : <span id="rOrigin"></span></p>
+                <p>Nombre de km : <span id="rKm"></span></p>
+                <p>Travaux à prévoir : <span id="rPrevoir"></span></p>
+                <p>Prix estimé :<span id="rEstimer"></span></p>
+            </div>
+        </main>
+    </body>
+    <script src="Public/JavaScript/Voiture.js"></script>
+</html>

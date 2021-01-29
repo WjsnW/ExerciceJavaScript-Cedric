@@ -1,0 +1,56 @@
+/* site */
+main{
+    width: 500px;
+    margin: 0 auto;
+}
+/* formulaire */
+form div{
+    display: flex;
+    margin-top: 20px;
+}
+p{
+    margin: 0 10px;
+}
+.erreur{
+    color: rgba(0, 0, 0, 0);
+}
+input{
+    width: 300px;
+}
+select{
+    width: 300px;
+}
+#envoyer{
+    margin: 20px 0;
+    padding: 5px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+#errTrop{
+    margin: 20px;
+    display: none;
+    font-size: 24px;
+    color: red;
+}
+/* resultat */
+#resultat{
+    display: none;
+    text-align: start;
+    font-size: 20px;
+}
+#rEstime{
+    margin-top: 20px;
+}
+span{
+    color: red;
+}
+#resultat p:last-child{
+    margin-top: 20px;
+}
+p:last-child span{
+    font-size: 24px;
+    color: green;
+}
