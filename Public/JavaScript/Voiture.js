@@ -98,6 +98,7 @@ function calcule() {
                 };
                 break;
         };
+        document.getElementById("form").style.display = "none";
         document.getElementById("resultat").style.display = "block";
         document.getElementById("rMarque").innerHTML = marque;
         document.getElementById("rModele").innerHTML = modele;
