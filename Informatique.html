@@ -31,7 +31,9 @@
             let flag = false;
             for (i of stock) {
                 if (i[0] == nomP.value) {
-                    stock[1] += nbrP.value;
+                    console.log(i);
+                    console.log(i[0]);
+                    i[1] += nbrP.value;
                     flag = true;
                     document.getElementById('reponse').textContent = nbrP.value;
                     break;
