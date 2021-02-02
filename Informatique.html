@@ -7,61 +7,24 @@
         <meta name="generator" content="VS" />
         <meta name="description" content="Un exercice pour naviguer dans un tableau en javaScript" />
         <title>Exercices Informatique</title>
+        <link rel="stylesheet" href="Public/css/informatique.css">
     </head>
     <body>
-        <label for="produit">Nom du produit :</label><br>
-        <input id="produit"><br><br>
-        <label for="nbr">Nombre de produit :</label><br>
-        <input id="nbr"><br><br>
-        <label for="prix">Prix du produit :</label><br>
-        <input id="prix"><br><br>
-        <input type="button" value="Envoyer" onclick="envoyer()">
-        <input type="button" value="voir" onclick="voir()">
+        <tfoot ></tfoot>
+        <h1>Gestion du stock informatique</h1>
+        <form onsubmit="return envoyer()">
+            <label for="produit">Nom du produit :</label><br>
+            <input id="produit"><br><br>
+            <label for="nbr">Nombre de produit :</label><br>
+            <input id="nbr" type="number"><br><br>
+            <label for="prix">Prix du produit :</label><br>
+            <input id="prix" type="number"><br><br>
+            <input type="button" value="Envoyer" onclick="envoyer()">
+            <input type="button" value="voir" onclick="voir()">
+        </form>
         <div id="reponse"></div>
         <div id="tab"></div>
     </body>
-    <script type="text/javascript">
-        const nomP = document.getElementById('produit');
-        const nbrP = document.getElementById('nbr');
-        const prixP = document.getElementById('prix');
-        let stock = [["ram",10,60],["carte mere",50,10]];
-        stock.sort();
-
-        function existe() {
-            let flag = false;
-            for (i of stock) {
-                if (i[0] == nomP.value) {
-                    console.log(i);
-                    console.log(i[0]);
-                    i[1] += nbrP.value;
-                    flag = true;
-                    document.getElementById('reponse').textContent = nbrP.value;
-                    break;
-                }
-            }
-            if (!flag) {
-                console.log("double");
-                stock.push([nomP.value, nbrP.value, prixP.value]);
-                stock.sort();
-                document.getElementById("reponse").textContent = nbrP.value;
-            }
-        }
-
-        function envoyer(){
-            if (nomP.value != "" && nbrP.value != "" && prixP.value != ""){
-                existe();
-            }
-        }
-
-        function voirTab(){
-            let texte = "";
-            for (i of stock) {
-                texte += "<p>Nom : "+i[0]+", Nombres : "+i[1]+", Prix : "+i[2]+" €</p>";
-            }
-            return texte
-        }
-        function voir(){            
-            document.getElementById('tab').innerHTML = voirTab();
-        }
+    <script type="text/javascript" src="Public/JavaScript/informatique.js">
     </script>
 </html>

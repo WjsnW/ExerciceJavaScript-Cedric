@@ -1,0 +1,23 @@
+body{
+    width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+}
+#reponse{
+    margin: 20px auto;
+}
+table{
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+thead, #tabTotal{
+    background-color: black;
+    color: white;
+}
+td{
+    padding: 20px 40px;
+    border: 1px solid black;
+}
+input{
+  outline: 0;
+}
