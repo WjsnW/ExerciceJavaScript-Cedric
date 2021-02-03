@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Welter Jason" />
+        <meta name="generator" content="VS" />
+        <meta name="description" content="Un exercice sur le prix des oeuf de poule"/>
+        <title>Exercices Fermier</title>
+        <link rel="stylesheet" href="Public/css/insrcription.css" />
+        <link rel="stylesheet" href="Public/css/fermier.css">
+    </head>
+    <body>
+       <h1>Le marcher des oeufs</h1>
+       <form onsubmit="return rajouter()">
+           <label for="race">Race de la poulle :</label>
+           <input id="race">
+           <label for="nom">Nom de la poulle :</label>
+           <input id="nom">
+           <label for="color">Couleur de la poule :</label>
+           <input id="color">
+           <label for="colorEggs">Couleur des oeufs :</label>
+           <select id="colorEggs">
+                <option value=""></option>
+                <option value="beige">Oeuf beige</option>
+                <option value="bleu">Oeuf bleu</option>
+                <option value="vert">Oeuf vert</option>
+                <option value="brun">Oeuf brun</option>
+                <option value="blanc">Oeuf blanc</option>
+           </select>
+           <label for="eggsNbr">Nombre d'oeufs pas jour :</label>
+           <input id="eggsNbr">
+           <div>
+               <button type="submit">Rajouter</button>
+               <button type="button" onclick="affTab()">Voir</button>
+            </div>
+        </form>
+        <form id="tabPoule" onsubmit="return voirForm()">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Race</td>
+                        <td>Nom</td>
+                        <td>Couleur</td>
+                        <td>Couleur oeuf</td>
+                        <td>Nbr/jour</td>
+                        <td>Nbr/semaine</td>
+                        <td>Nbr/mois</td>
+                        <td>Nbr/année</td>
+                        <td>Total annuel</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7"></td>
+                        <td>Total :</td>
+                        <td id="tabTotal"></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button type="submit" id="btC">Rajouter poule</button>
+        </form>
+    </body>
+    <script src="Public/JavaScript/fermier.js"></script>
+</html>
