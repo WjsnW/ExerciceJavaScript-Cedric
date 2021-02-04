@@ -14,7 +14,7 @@ function controle(qui) {
 
 function controleNbr(qui) {
     let flag = true;
-    if (qui.value != "" && qui.value.match(/^\d$/)) {
+    if (qui.value != "" && qui.value.match(/^\d{0,}$/)) {
         qui.style.border = "black 1px solid";
     } else {
         qui.style.border = "red 1px solid";
@@ -29,13 +29,39 @@ const color = document.getElementById('color');
 const colorEggs = document.getElementById("colorEggs");
 const nbrJ = document.getElementById('eggsNbr');
 
+function calTotal(qui,avec) {
+    tt = 0;
+    switch (qui) {
+        case "beige":
+            tt = Math.ceil(avec*1);
+            break;
+        case "bleu":
+            tt = Math.ceil(avec*1.2);
+            break;
+        case "vert":
+            tt = Math.ceil(avec*1.3);
+            break;
+        case "brun":
+            tt = Math.ceil(avec*2);
+            break;
+        case "blanc":
+            tt = Math.ceil(avec*1.6);
+            break;
+    }
+    return tt
+}
+
 class Poule{
     constructor(race,nom,color,colorEggs,nbrJ){
         this.race = race,
         this.nom = nom,
         this.color = color,
         this.colorEggs = colorEggs,
-        this.nbrJ = nbrJ;
+        this.nbrJ = nbrJ,
+        this.nbrS = Math.ceil(this.nbrJ*7),
+        this.nbrM = Math.ceil((this.nbrS-(this.nbrS*0.05))*4.33),
+        this.nbrA = Math.ceil(this.nbrM*12),
+        this.total =  calTotal(this.colorEggs,this.nbrA);
     }
 }
 
@@ -55,6 +81,9 @@ function existe() {
             p.remove();
         }catch{}
         poulayer.push(new Poule(race.value, nom.value, color.value, colorEggs.value, +nbrJ.value));
+        poulayer.sort( (prev,next) => {
+            return next.total-prev.total
+        })
         let p = document.createElement("p");
         p.textContent = nom.value+" à etait rajouter";
         p.id = "raj";
@@ -64,6 +93,7 @@ function existe() {
         color.value = "";
         colorEggs.value = "";
         nbrJ.value = "";
+        race.focus();
     }
 }
 
@@ -96,45 +126,20 @@ const tabBody = document.getElementsByTagName("tbody")[0];
 const tabTotal = document.getElementById('tabTotal');
 
 function remplirTab() {
-    let s;
-    let m;
-    let a;
-    let tt = 0;
     let somme =0;
     let texte = "";
     for (i of poulayer) {
-        s = Math.ceil(i.nbrJ*7);
-        m = Math.ceil((s-(s*0.05))*4.33);
-        a = Math.ceil( m*12);
-        tt = 0;
-        switch (i.colorEggs) {
-            case "beige":
-                tt = Math.ceil(a*1);
-                break;
-            case "bleu":
-                tt = Math.ceil(a*1.2);
-                break;
-            case "vert":
-                tt = Math.ceil(a*1.3);
-                break;
-            case "brun":
-                tt = Math.ceil(a*2);
-                break;
-            case "blanc":
-                tt = Math.ceil(a*1.6);
-                break;
-        }
-        somme += tt;
+        somme += i.total;
         texte += '<tr>'+
         '<td>'+i.race+'</td>'+
         '<td>'+i.nom+'</td>'+
         '<td>'+i.color+'</td>'+
         '<td>'+i.colorEggs+'</td>'+
         '<td>'+i.nbrJ+'</td>'+
-        '<td>'+s+'</td>'+
-        '<td>'+m+'</td>'+
-        '<td>'+a+'</td>'+
-        '<td>'+tt+' €</td>'+
+        '<td>'+i.nbrS+'</td>'+
+        '<td>'+i.nbrM+'</td>'+
+        '<td>'+i.nbrA+'</td>'+
+        '<td>'+i.total+' €</td>'+
         '</tr>';
     }
     tabBody.innerHTML = texte;
