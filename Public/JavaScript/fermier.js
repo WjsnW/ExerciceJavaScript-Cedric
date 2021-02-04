@@ -29,29 +29,28 @@ const color = document.getElementById('color');
 const colorEggs = document.getElementById("colorEggs");
 const nbrJ = document.getElementById('eggsNbr');
 
-function calTotal(qui,avec) {
-    tt = 0;
-    switch (qui) {
-        case "beige":
-            tt = Math.ceil(avec*1);
-            break;
-        case "bleu":
-            tt = Math.ceil(avec*1.2);
-            break;
-        case "vert":
-            tt = Math.ceil(avec*1.3);
-            break;
-        case "brun":
-            tt = Math.ceil(avec*2);
-            break;
-        case "blanc":
-            tt = Math.ceil(avec*1.6);
-            break;
-    }
-    return tt
-}
-
 class Poule{
+    calTotal() {
+        let tt = 0;
+        switch (this.colorEggs) {
+            case "beige":
+                tt = Math.ceil(this.nbrA*1);
+                break;
+            case "bleu":
+                tt = Math.ceil(this.nbrA*1.2);
+                break;
+            case "vert":
+                tt = Math.ceil(this.nbrA*1.3);
+                break;
+            case "brun":
+                tt = Math.ceil(this.nbrA*2);
+                break;
+            case "blanc":
+                tt = Math.ceil(this.nbrA*1.6);
+                break;
+        }
+        return tt
+    }
     constructor(race,nom,color,colorEggs,nbrJ){
         this.race = race,
         this.nom = nom,
@@ -61,7 +60,7 @@ class Poule{
         this.nbrS = Math.ceil(this.nbrJ*7),
         this.nbrM = Math.ceil((this.nbrS-(this.nbrS*0.05))*4.33),
         this.nbrA = Math.ceil(this.nbrM*12),
-        this.total =  calTotal(this.colorEggs,this.nbrA);
+        this.total =  this.calTotal(this.colorEggs,this.nbrA);
     }
 }
 
