@@ -64,7 +64,7 @@ class Poule{
     }
 }
 
-let poulayer = [new Poule("Poulette", "Pomme", "blanc", "blanc", 4)];
+let poulayer = [];
 
 function existe() {
     if (poulayer.find(i => i.nom == nom.value)) {
@@ -119,6 +119,21 @@ function rajouter() {
     return false
 }
 
+// au click de voir
+const formulaire = document.getElementsByTagName('form')[0];
+const formTab = document.getElementsByTagName('form')[1];
+
+function affTab(){
+    formulaire.style.display = "none";
+    formTab.style.display = "block";
+    remplirTab();
+}
+function voirForm() {
+    formulaire.style.display = "flex";
+    formTab.style.display = "none";
+    return false
+}
+
 /* ***** page tableau ***** */
 // remplir tableau
 const tabBody = document.getElementsByTagName("tbody")[0];
@@ -145,20 +160,6 @@ function remplirTab() {
     tabTotal.innerText = somme+" €";
 }
 
-// au click de voir
-const formulaire = document.getElementsByTagName('form')[0];
-const formTab = document.getElementsByTagName('form')[1];
-
-function affTab(){
-    formulaire.style.display = "none";
-    formTab.style.display = "block";
-    remplirTab();
-}
-function voirForm() {
-    formulaire.style.display = "flex";
-    formTab.style.display = "none";
-    return false
-}
 // suprimer Poule
 const quiPoul = document.getElementById('PoulSup');
 
@@ -169,18 +170,16 @@ function supPoul() {
         quiPoul.style.border = "black 1px solid";
     }catch{}
 
-    if (poulayer.find(i => i.nom == quiPoul.value)) {
-        let nbr = 0;
-        for (j of poulayer) {
-            if (j.nom == quiPoul.value) {
-                poulayer.splice(nbr,1);
-                affTab();
-                quiPoul.value = "";
-                console.log("supp : " + j );
-            }
-            nbr ++;
+    let flag = true;
+    for ( i in poulayer) {
+        if (poulayer[i].nom == quiPoul.value) {
+            poulayer.splice(i,1);
+            affTab();
+            quiPoul.value = "";
+            flag = false;
         }
-    }else {
+    }
+    if (flag) {
         let p = document.createElement("p");
         p.textContent = " Le nom n'existe pas";
         p.id = "raj";
