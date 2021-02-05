@@ -159,3 +159,33 @@ function voirForm() {
     formTab.style.display = "none";
     return false
 }
+// suprimer Poule
+const quiPoul = document.getElementById('PoulSup');
+
+function supPoul() {
+    try{
+        let p = document.getElementById("raj");
+        p.remove();
+        quiPoul.style.border = "black 1px solid";
+    }catch{}
+
+    if (poulayer.find(i => i.nom == quiPoul.value)) {
+        let nbr = 0;
+        for (j of poulayer) {
+            if (j.nom == quiPoul.value) {
+                poulayer.splice(nbr,1);
+                affTab();
+                quiPoul.value = "";
+                console.log("supp : " + j );
+            }
+            nbr ++;
+        }
+    }else {
+        let p = document.createElement("p");
+        p.textContent = " Le nom n'existe pas";
+        p.id = "raj";
+        quiPoul.insertAdjacentElement("afterend",p);
+        quiPoul.style.border = "red 1px solid";
+        quiPoul.focus();
+    }
+}

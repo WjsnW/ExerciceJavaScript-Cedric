@@ -47,7 +47,12 @@ td{
     border: 1px solid black;
     padding: 20px;
 }
-#btC{
+.btC{
     margin: 10px auto 0px;
     width: 130px;
+}
+#supp{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
