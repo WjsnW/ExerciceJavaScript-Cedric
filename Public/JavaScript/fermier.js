@@ -177,6 +177,7 @@ function supPoul() {
             affTab();
             quiPoul.value = "";
             flag = false;
+            break;
         }
     }
     if (flag) {

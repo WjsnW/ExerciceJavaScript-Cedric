@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Welter Jason" />
+        <meta name="generator" content="VS" />
+        <meta name="description" content="Un exercice pour utilise du JQuery" />
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <title>Exercices JQuery</title>
+    </head>
+    <style>
+        body{
+            margin: auto 0;
+            text-align: center;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            margin: 10px auto;
+            width: 100px;
+            outline: 0;
+        }
+        .erreur{
+            color: red;
+            font-size: 0.8rem;
+            margin: 0;
+            margin-top: 10px;
+        }
+    </style>
+    <body>
+        <h1>Exercice Regex + JQuery</h1>
+        <form onsubmit="return valide()">
+            <label for="nom" >Votre nom :</label>
+            <input id="nom" type="text">
+            <label for="prenom" >Votre nom :</label>
+            <input id="prenom" type="text">
+            <label for="dateN" >Votre date de naissance :</label>
+            <input id="dateN" type="text">
+            <label for="email" >Votre email :</label>
+            <input id="email" type="text">
+            <label for="tel" >Votre numéro de téléphone :</label>
+            <input id="tel" type="text">
+            <input type="submit">
+        </form>
+    </body>
+    <script type="text/javascript">
+        const nom = $('#nom');
+        const prenom = $('#prenom');
+        const dateN = $('#dateN');
+        const email = $('#email');
+        const tel = $('#tel');
+
+        function valide() {
+            let flag = 0;
+            let regMaj = /^[A-Z]$/;
+            let regCar = /^[A-Z][a-z]+$/;
+            let regDate = /^\d{2}-\d{2}-\d{4}$/;
+            let regEmail = /^[\w-_\.]+@[\w-_]+\.[\w]{2,4}$/;
+            let regTel = /^\d{10}$/;
+
+            let entrer = [tel,email,dateN,prenom,nom];
+            let regle = [regTel,regEmail,regDate,regCar,regMaj];
+
+            try {
+                let err = $('.erreur');
+                for (i=0; i<err.length; i++) {
+                    err[i].remove();
+                }
+            } catch {}
+
+            for (i in regle) {
+                if ( entrer[i].val().match(regle[i]) ) {
+                    flag +=1;
+                    entrer[i].css("border-color","black");
+                } else {
+                    entrer[i].before("<p class='erreur'>"+entrer[i].val()+" est incorrecte</p>");
+                    entrer[i].css("border-color", "red");
+                    entrer[i].focus();
+                }
+            }
+            if (flag == 5) {
+                for (i=0; i<5; i++) {
+                    entrer[i].val("");
+                }
+                alert("inscription valide");
+            }
+            return false;
+        }
+    </script>
+</html>
