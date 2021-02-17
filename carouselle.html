@@ -1,0 +1,32 @@
+<html>
+  <head>
+  <title>My Now Amazing Webpage</title>
+  <link rel="stylesheet" type="text/css" href="Public/extension/slick/slick/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="Public/extension/slick/slick/slick/slick.css"/>
+  </head>
+  <body>
+
+    <div class="carouselle">
+        <div><img src="Public/picture/im1.jpg" alt="Pomme"></div>
+        <div><img src="Public/picture/im2.jpg" alt="Abrico"></div>
+        <div><img src="Public/picture/im3.jpg" alt="Citron"></div>
+        <div><img src="Public/picture/im4.jpg" alt="Cerise"></div>
+    </div>
+    
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="Public/extension/slick/slick/slick/slick.js"></script>
+    <script type="text/javascript">
+	$(document).ready(function() {
+    $('.carouselle').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+});
+</script>
+
+</body>
+</html>

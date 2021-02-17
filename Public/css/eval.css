@@ -1,0 +1,122 @@
+/* ----- fleche ----- */
+#fleche{
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 100px;
+    background-color: #65ab2f;
+    font-size: 30px;
+    color: white;
+    z-index: 10;
+    padding: 0 10px;
+    cursor: pointer;
+}
+#fleche:hover{
+    color: black;
+}
+/* ----- header ----- */
+header{
+    z-index: 10;
+}
+header .row:nth-child(1){
+    height: 50px;
+    color: white;
+    background-color: #65ab2f;
+    align-content: center;
+}
+header p{
+    padding-top: 12px;
+}
+header nav{
+    background-color: white;
+}
+header nav p{
+    cursor: pointer;
+}
+header img{
+    padding: 10px 0;
+}
+header .row:nth-child(3) .col-3:nth-child(4){
+    cursor: pointer;
+    width: 200px;
+    padding-top: 12px;
+}
+/* ----- carouselle ----- */
+.carouselle{
+    width: 97%;
+    margin: 0 auto;
+}
+/* ----- Article ----- */
+article h2{
+    margin: 20px;
+}
+#ligne{
+    background-color: hsl(0deg 0% 94%);
+    margin: 20px 0;
+    height: 10px;
+}
+figcaption{
+    color: #777777;
+    font-size: 0.9rem;
+    text-align: center;
+}
+figcaption span{
+    color: #65ab2f;
+    font-size: 1.3rem;
+}
+/* ----- Footer ----- */
+.flex{
+    display: flex;
+}
+.flex p:first-child{
+    font-size: 40px;
+    margin: 0 20px;
+}
+footer{  
+    color: #777777;
+}
+footer[class=container-fluid]{
+    padding: 0;
+}
+footer .blanc{
+    background-color: #2c545c;
+    color: white;
+    padding-top: 12px;
+    height: 50px;
+}
+footer form{
+    padding: 20px;
+}
+footer .row{
+    margin: 20px;
+}
+footer .row:first-child{
+    margin: 0;
+}
+footer .row:nth-child(1) span{
+    color: #e78400;
+}
+footer h4{
+    color: black;
+}
+footer input[type=file] {
+    display: none;
+}
+footer label:nth-child(2){
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    margin-top: 4px;
+}
+footer button{
+    border: none;
+    color: white;
+    background-color: black;
+
+}
+footer button:last-child{
+    border-radius: 0.3rem;
+    padding: 10px;
+    background-color: #323232;
+}
