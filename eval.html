@@ -128,7 +128,7 @@
                                 </p>
                             </div>
                         </div>
-                        <form class="col-6 border">
+                        <form class="col-6 border" onsubmit='return value()'>
                             <h4>Contactez-nous</h4>
                             <div class="container-fluid">
                                 <div class="row">
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="row">
                                     <label class="col d-flex justify-content-end">Adresse e-mail</label>
-                                    <input class="col-6" placeholder="votre@email.com">
+                                    <input id="email" class="col-6" placeholder="votre@email.com">
                                     <div class="col"></div>
                                 </div>
                                 <div class="row">
@@ -149,11 +149,11 @@
                                 </div>
                                 <div class="row">
                                     <label class="col d-flex justify-content-end">Message</label>
-                                    <textarea class="col-9" placeholder="Comment pouvons-nous aider ?"></textarea>
+                                    <textarea id="message" class="col-9" placeholder="Comment pouvons-nous aider ?"></textarea>
                                 </div>
                                 <div class="row">
                                     <div class="col-10"></div>
-                                    <button class="col">Envoyer</button>
+                                    <button type="submit" class="col">Envoyer</button>
                                 </div>
                             </div>
                         </form>
@@ -185,6 +185,27 @@
             texte += "<option>"+i+"</option>"
         }
         $("select").html(texte);
+        // controle des input
+        function value(){
+            verifemail();
+            verifArea();
+            return false
+        }
+        function verifemail() {
+            if ($('#email').val().match(/^[\w-\.]{1,}@[\w-]{1,}\.[\w-]{2,3}$/)){
+                $('#email').css({'border-color':'black'});
+            } else {
+                $('#email').css({'border-color':'red'});
+                $('#email').val('');
+            }
+        }
+        function verifArea() {
+            if ($('#message').val().length > 1) {
+                $('#message').css({'border-color':'black'});
+            } else {
+                $('#message').css({'border-color':'red'});
+            }
+        }
         // fleche pour remonter + menu
         const scroll = document.scrollingElement;
         

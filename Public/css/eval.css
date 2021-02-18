@@ -99,6 +99,9 @@ footer .row:nth-child(1) span{
 footer h4{
     color: black;
 }
+footer input{
+    outline: none;
+}
 footer input[type=file] {
     display: none;
 }
